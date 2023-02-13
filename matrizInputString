@@ -1,0 +1,29 @@
+#include "iostream"
+#include "stdio.h"
+#include "string"
+
+using namespace std;
+
+int main()
+{
+    string ficha[2][2];
+    cout << "Por favor ingrese su nombre: \n";
+    string nombre ,apellido;
+    for(int i = 0; i < 2; i++)
+    {
+        cout << "\n******* Usuario " << i + 1 << "********:\n";
+        cout << "Titulo: ";
+        getline(cin,apellido);
+        cout << "Autor: ";
+        getline(cin,nombre);
+        ficha[i][0] = nombre;
+        ficha[i][1] = apellido;
+    }
+
+    cout <<ficha[0][0]<<", "<<ficha[1][1]<<endl;
+    cout <<ficha[1][0]<<", "<<ficha[1][1]<<endl;
+
+    //system("pause");
+
+    //return 0;
+}
