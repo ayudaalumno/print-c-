@@ -1,0 +1,28 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    
+// la función endl acaba la línea y pasa a la siguiente. 
+// operador sizeof proporciona la cantidad de almacenamiento, en bytes, 
+// tipoDato nombreMatriz[filas][columnas]; 
+//{{1,2},{9,8},{14,21},{11,49}};
+   // string edades[4][2] = {{a,b},{c,d},{e,f},{g,h}};
+   int edades[3][2] = {{1,2},{9,8},{11,49}};
+    int filas = (sizeof(edades)/sizeof(edades[0]));
+    int columnas = (sizeof(edades[0])/sizeof(edades[0][0]));
+   
+    for (int i = 0; i < filas; i++)
+    {
+        cout<<"valor "<<i<<endl;
+        for (int j = 0; j < columnas; j++)
+        {
+            cout<<edades[i][j]<<endl;
+            cout<<"valor del vector matriz "<<j<<endl;
+            //recorre toda la matriz para sacar fila y columna
+        }
+         
+    }
+
+}
