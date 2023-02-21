@@ -1,0 +1,77 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+using namespace std;
+
+// Función que ordena un vector de enteros de mayor a menor
+vector<int> ordenar_numeros(vector<int> numeros) {
+    sort(numeros.rbegin(), numeros.rend()); // Ordena de mayor a menor
+    return numeros;
+}
+
+// Función que devuelve los tres mayores números de un vector
+vector<int> obtener_tres_mayores(vector<int> numeros) {
+    vector<int> tres_mayores;
+    sort(numeros.rbegin(), numeros.rend()); //  la función sort ordena de mayor a menor .rbegin y.rend
+    for (int i = 0; i < 3; i++) {
+        tres_mayores.push_back(numeros[i]);
+    }
+    return tres_mayores;
+}
+
+// Función que devuelve los tres mayores números pares de un vector
+vector<int> obtener_tres_mayores_pares(vector<int> numeros) {
+    vector<int> tres_mayores_pares;
+    sort(numeros.rbegin(), numeros.rend()); // la función sort ordena de mayor a menor .rbegin y.rend
+    for (int i = 0; i < numeros.size(); i++) {
+        if (numeros[i] % 2 == 0) {
+            tres_mayores_pares.push_back(numeros[i]);
+        }
+        if (tres_mayores_pares.size() == 3) {
+            break;
+        }
+    }
+    return tres_mayores_pares;
+}
+
+// Función que devuelve la media de los tres mayores números de un vector Primero saca los tres mayores
+double obtener_media_tres_mayores(vector<int> numeros) {
+    vector<int> tres_mayores = obtener_tres_mayores(numeros);
+    double suma = 0;
+    for (int i = 0; i < tres_mayores.size(); i++) {
+        suma += tres_mayores[i];
+    }
+    return suma / 3; // hace la media tras sumar los tres mayores..
+}
+
+int main() {
+// definimos la cantidad de números que vamos a almacenar ej:19
+// definimos el vector "numeros" para guardar números enteros (int)
+    vector<int> numeros(10);
+    for (int i = 0; i < 10; i++) {
+        cout << "Ingrese un número entero: ";
+        cin >> numeros[i];
+    }
+    vector<int> numeros_ordenados = ordenar_numeros(numeros); // llama a la función ordenar_numeros trasladando el vector numeros
+    cout << "Números ordenados de mayor a menor: ";
+    for (int i = 0; i < numeros_ordenados.size(); i++) {
+        cout << numeros_ordenados[i] << "||";
+    }
+    cout << endl;
+    vector<int> tres_mayores = obtener_tres_mayores(numeros); //llama a la función obterner_tres_mayores trasladando vector numeros
+    cout << "Los tres mayores números son: ";
+    for (int i = 0; i < tres_mayores.size(); i++) {
+        cout << tres_mayores[i] << "||";
+    }
+    cout << endl;
+    vector<int> tres_mayores_pares = obtener_tres_mayores_pares(numeros); //llama a la función obt_tres_mayores_pares...
+    cout << "Los tres mayores números pares son: ";
+    for (int i = 0; i < tres_mayores_pares.size(); i++) {
+        cout << tres_mayores_pares[i] << "||";
+    }
+    cout << endl;
+    double media_tres_mayores = obtener_media_tres_mayores(numeros); // llama función Media....
+    cout << "La media de los tres mayores números es: " << media_tres_mayores << endl;
+    return 0;
+}
