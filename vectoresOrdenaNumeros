@@ -1,0 +1,59 @@
+#include <iostream>
+#include <list>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+// Función para ordenar la lista de vectores de mayor a menor
+void ordena(list<vector<int>>& listaNumeros) {
+    // Recorrer la lista y ordenar cada vector con el método sort de la biblioteca estándar
+    for (auto iter = listaNumeros.begin(); iter != listaNumeros.end(); ++iter) {
+        sort(iter->rbegin(), iter->rend()); // Ordenar de mayor a menor
+    }
+}
+
+
+
+int main() {
+    // Preguntarle al usuario qué números desea ordenar
+    int num1, num2, num3;
+    cout << "Ingrese el primer número: ";
+    cin >> num1;
+    cout << "Ingrese el segundo número: ";
+    cin >> num2;
+    cout << "Ingrese el tercer número: ";
+    cin >> num3;
+
+    // Crear los vectores con los números ingresados por el usuario
+    vector<int> vectorNumeros = {num1, num2, num3};
+    
+   
+    // Crear la lista de vectores y agregar los vectores con los números metodo push_back
+    list<vector<int>> listaNumeros;
+    listaNumeros.push_back(vectorNumeros);
+
+ 
+
+    // Recorrer la lista e imprimir los valores del vector
+    for (auto iter = listaNumeros.begin(); iter != listaNumeros.end(); ++iter) {
+         cout << "Lista Original:" << endl;
+        for (auto num : (*iter)) {
+            cout << num << " ";  // Imprime cada número en el vector
+        }
+        cout << endl;
+    }
+    
+    // llama a la función para ordenar la lista del vector de mayor a menor
+    ordena(listaNumeros);
+     cout << "Lista ordenada:" << endl;
+  // imprime la lista ordenada... para lo que la debe recorrer primero
+   for (auto iter = listaNumeros.begin(); iter != listaNumeros.end(); ++iter) {
+        for (auto num : (*iter)) {
+            cout << num << " ";  // Imprime cada número en el vector
+        }
+        cout << endl;
+    }
+    
+ 
+}
